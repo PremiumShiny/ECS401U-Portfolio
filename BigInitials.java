@@ -13,28 +13,30 @@ class BigInitials {
     public static void main(String[] param) {
         arrays();
     } // End method main
-
+	
+	// Method asks for a string and splits it into substrings. The letter matched in [] alphabet is cross-referenced
+	// against the respective index of [] bigAlphabet and is printed with a preceding newline character
     public static void convertToBig(String[] alphabet, String[] bigAlphabet) {
         String initial = input("Please enter your initials;");
 
-        String[] initialSplit = initial.split(""); // Splits the user input into substrings
+        String[] initialSplit = initial.split("");
         for (String split : initialSplit) {
             for (int c = 0; c < alphabet.length; c++) {
                 if (split.contains(alphabet[c])) {
                     print("\n" + bigAlphabet[c]);
-                }   // Crossreference user input against 'alphabet'
-            }       // When a letter is found, the respective
-        }           // index of 'bigAlphabet' is printed
+                }
+            }
+        }
     } // End method convertToBig
 
-    // Ask for a String with message; Return String from user; Check if input is an alphabet character;
-    // If not, an error is displayed and user is asked to enter another String
+    // Ask for a string with message and return string from user. Check if input is an alphabet
+    // character; if not, an error is displayed and user is asked to enter another string
     public static String input(String message) {
         Scanner scan = new Scanner(System.in);
         print(message);
         String userInput = scan.nextLine();
         while (userInput.matches(".*[^A-Z].*") | userInput.matches("")) { // .* means to find any character sequence; ^ means negation i.e. NOT A to Z
-            print("Some characters are not available:\n\t+Please use capital letters.\n\t+Do not use a space between characters.\nPlease enter your initials;");
+            print("Some characters are not available:\n\t*Please use capital letters.\n\t*Do not use a space between characters.\nPlease enter your initials;");
             userInput = scan.nextLine();
         }
         return userInput;
@@ -60,15 +62,15 @@ class BigInitials {
 } // End class BigInitials
 
 /** **************************** VISUAL REPRESENTATION OF BIG ALPHABET ********************************** *
- *   A		BBBB	CCCCC	DDDD	EEEEE	FFFFF	GGGGG	H   H	IIIII	  JJJ	K   K	L		M   M *
- * A   A	B   B	C		D   D	E		F		G		H   H	  I		    J	K  K	L		MM MM *
- * AAAAA	BBBBB	C		D   D	EEEE	FFFF	G  GG	HHHHH	  I		    J	KKK		L		M M M *
- * A   A	B   B	C		D   D	E		F		G   G	H   H	  I			J	K  K	L		M   M *
- * A   A	BBBBB	CCCCC	DDDD	EEEEE	F		GGGGG	H   H	IIIII	JJJJ	K   K	LLLLL	M   M *
+ *	 A		BBBB	CCCCC   DDDD    EEEEE   FFFFF   GGGGG   H   H   IIIII    JJJ    K   K   L       M   M *
+ * A   A	B   B	C       D   D   E       F       G       H   H     I         J   K  K    L       MM MM *
+ * AAAAA	BBBBB	C       D   D   EEEE    FFFF    G  GG   HHHHH     I         J   KKK     L       M M M *
+ * A   A	B   B	C       D   D   E       F       G   G   H   H     I         J   K  K    L       M   M *
+ * A   A	BBBBB	CCCCC   DDDD    EEEEE   F       GGGGG   H   H   IIIII	JJJJ    K   K   LLLLL   M   M *
  *                                                                                                        *
- * N   N	OOOOO	PPPPP	QQQQQ	RRRR	SSSSS	TTTTT	U   U	V   V	W   W	X   X	Y   Y	ZZZZZ *
- * NN  N	O   O	P   P	Q   Q	R   R	S		  T		U   U	V   V	W   W	 X X	Y   Y	   Z  *
- * N N N	O   O	PPPPP	Q Q Q	RRRR	SSSSS	  T		U   U	VV VV 	W W W	  X		 Y Y	  Z   *
- * N  NN	O   O	P		QQQQQ	R  R	    S	  T		U   U	 V V	WW WW	 X X	  Y		 Z    *
- * N   N	OOOOO	P		    Q	R   R	SSSSS	  T		UUUUU	  V		W   W	X   X	  Y		ZZZZZ *
+ * N   N    OOOOO   PPPPP   QQQQQ   RRRR    SSSSS   TTTTT   U   U   V   V   W   W   X   X   Y   Y   ZZZZZ *
+ * NN  N    O   O   P   P   Q   Q   R   R   S         T     U   U   V   V   W   W    X X    Y   Y      Z  *
+ * N N N    O   O   PPPPP   Q Q Q   RRRR    SSSSS     T     U   U   VV VV   W W W     X      Y Y      Z   *
+ * N  NN    O   O   P       QQQQQ   R  R        S     T     U   U    V V    WW WW    X X      Y      Z    *
+ * N   N    OOOOO   P           Q   R   R   SSSSS     T     UUUUU     V     W   W   X   X     Y     ZZZZZ *
  * ****************************************************************************************************** */
