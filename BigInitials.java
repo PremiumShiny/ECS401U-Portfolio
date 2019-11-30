@@ -62,7 +62,7 @@ class BigInitials {
 } // End class BigInitials
 
 /** **************************** VISUAL REPRESENTATION OF BIG ALPHABET ********************************** *
- *   A     BBBB    CCCCC   DDDD    EEEEE   FFFFF   GGGGG   H   H   IIIII     JJJ   K   K   L       M   M *
+ *   A      BBBB    CCCCC   DDDD    EEEEE   FFFFF   GGGGG   H   H   IIIII     JJJ   K   K   L       M   M *
  * A   A    B   B   C       D   D   E       F       G       H   H     I         J   K  K    L       MM MM *
  * AAAAA    BBBBB   C       D   D   EEEE    FFFF    G  GG   HHHHH     I         J   KKK     L       M M M *
  * A   A    B   B   C       D   D   E       F       G   G   H   H     I         J   K  K    L       M   M *
