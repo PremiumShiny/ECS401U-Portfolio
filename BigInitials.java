@@ -14,8 +14,8 @@ class BigInitials {
         arrays();
     } // End method main
 	
-	// Method asks for a string and splits it into substrings. The letter matched in [] alphabet is cross-referenced
-	// against the respective index of [] bigAlphabet and is printed with a preceding newline character
+    // Method asks for a string and splits it into substrings. The letter matched in [] alphabet is cross-referenced
+    // against the respective index of [] bigAlphabet and is printed with a preceding newline character
     public static void convertToBig(String[] alphabet, String[] bigAlphabet) {
         String initial = input("Please enter your initials;");
 
