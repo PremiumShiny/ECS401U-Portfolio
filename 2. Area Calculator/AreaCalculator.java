@@ -36,13 +36,13 @@ class AreaCalculator {
     public static double getLength() {
         final double LENGTH = inputDbl("What is the length of the room in centimetres?");
         return LENGTH;
-    }
+    } // End method getLength
 
     // Returns width from user input
     public static double getWidth() {
         final double WIDTH = inputDbl("What is the width of the room in centimetres?");
         return WIDTH;
-    }
+    } // End method getWidth
 
     // Converts square centimetres to square metres, works out 10% extra space and prints the values
     // If AREA is too small or large, prints an error, otherwise passing AREA and EXTRA to method result
