@@ -2,25 +2,25 @@
  * FILE:    AreaCalculator.java
  * AUTHOR:  Richard Cheung
  * DATE:    24 November 2019
- * USE:		Calculate the necessary flooring material to order.
- * DESC:	Program asks for length and width of room, printing room area. It will then account for 10% extra
- *			space and print out the final area. The program handles small dimensions where AREA > FINAL_AREA,
- *			and large dimensions where AREA > double size by printing an error. There is a check to see whether
- *			the user wants to continue using the program by utilising a loop. Handles catching of inputs
- *			containing only ".", and strings including non-digit characters by printing an error.
+ * USE:     Calculate the necessary flooring material to order.
+ * DESC:    Program asks for length and width of room, printing room area. It will then account for 10% extra
+ *          space and print out the final area. The program handles small dimensions where AREA > FINAL_AREA,
+ *          and large dimensions where AREA > double size by printing an error. There is a check to see whether
+ *          the user wants to continue using the program by utilising a loop. Handles catching of inputs
+ *          containing only ".", and strings including non-digit characters by printing an error.
  */
 
-import java.math.BigDecimal;	// Allows the use of rounding to specific decimal places
-import java.math.RoundingMode;	// Allows a value to be rounded in a specific way
+import java.math.BigDecimal;    // Allows the use of rounding to specific decimal places
+import java.math.RoundingMode;  // Allows a value to be rounded in a specific way
 import java.util.Scanner;
 
 class AreaCalculator {
     public static void main(String[] param) {
-		double length = getLength();
-		double width = getWidth();
-		calculation(length, width);
+        double length = getLength();
+        double width = getWidth();
+        calculation(length, width);
 
-		// Check to see if user wants to continue
+        // Check to see if user wants to continue
         double again = inputDbl("Type '1' to add more values. Type '0' to terminate;");
         while (again != 0 && again != 1) {
             again = inputDbl("This is not a valid input.\nType '1' to add more values. Type '0' to terminate;");
@@ -32,18 +32,20 @@ class AreaCalculator {
         }
     } // End method main
 
-	public static double getLength() {
-		final double LENGTH = inputDbl("What is the length of the room in centimetres?");
-		return LENGTH;
-	}
+    // Returns length from user input
+    public static double getLength() {
+        final double LENGTH = inputDbl("What is the length of the room in centimetres?");
+        return LENGTH;
+    }
 
-	public static double getWidth() {
-		final double WIDTH = inputDbl("What is the width of the room in centimetres?");
-		return WIDTH;
-	}
+    // Returns width from user input
+    public static double getWidth() {
+        final double WIDTH = inputDbl("What is the width of the room in centimetres?");
+        return WIDTH;
+    }
 
-	// Converts square centimetres to square metres, works out 10% extra space and prints the values
-	// If AREA is too small or large, prints an error, otherwise passing AREA and EXTRA to method result
+    // Converts square centimetres to square metres, works out 10% extra space and prints the values
+    // If AREA is too small or large, prints an error, otherwise passing AREA and EXTRA to method result
     public static void calculation(double LENGTH, double WIDTH) {
         final double AREA = (LENGTH * WIDTH) / 10000;
 
@@ -54,18 +56,18 @@ class AreaCalculator {
         } else {
             print("\nThe area of your room is " + AREA + "m².");
 
-			final double EXTRA = AREA / 10;
-			print("The extra flooring you would need to account for wastage is " + EXTRA + "m².");
-			result(AREA, EXTRA);
-		}
+            final double EXTRA = AREA / 10;
+            print("The extra flooring you would need to account for wastage is " + EXTRA + "m².");
+            result(AREA, EXTRA);
+        }
     } // End method calculation
 
-	// Calculates the total area needed, accounting for 10% extra area
-	// Prints the final area of flooring that needs to be ordered
+    // Calculates the total area needed, accounting for 10% extra area
+    // Prints the final area of flooring that needs to be ordered
     public static void result(double AREA, double EXTRA) {
         final double EXTRA_AREA = (AREA + EXTRA);
-        BigDecimal dec = new BigDecimal(EXTRA_AREA); // Creates a new variable to use with BigDecimal
-        final BigDecimal FINAL_AREA = dec.setScale(1, RoundingMode.DOWN); // setScale '1' will truncate to 1 decimal place
+        BigDecimal dec = new BigDecimal(EXTRA_AREA);                            // Creates a new variable to use with BigDecimal
+        final BigDecimal FINAL_AREA = dec.setScale(1, RoundingMode.DOWN);       // setScale '1' will truncate to 1 decimal place
         print("The total flooring material to order is " + FINAL_AREA + "m²."); // RoundingMode.DOWN will round down
     } // End method result
 
