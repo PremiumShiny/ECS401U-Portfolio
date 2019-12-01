@@ -53,10 +53,10 @@ class BigInitials {
         String[] alphabet = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
         String[] bigAlphabet = {"  A  \nA   A\nAAAAA\nA   A\nA   A", "BBBB \nB   B\nBBBBB\nB   B\nBBBBB", "CCCCC\nC    \nC    \nC    \nCCCCC", "DDDD \nD   D\nD   D\nD   D\nDDDD ", "EEEEE\nE    \nEEEE \nE    \nEEEEE",
-                "FFFFF\nF    \nFFFF \nF    \nF    ", "GGGGG\nG    \nG  GG\nG   G\nGGGGG", "H   H\nH   H\nHHHHH\nH   H\nH   H", "IIIII\n  I  \n  I  \n  I  \nIIIII", "  JJJ\n    J\n    J\n    J\nJJJJ ",
-                "K   K\nK  K \nKKK  \nK  K \nK   K", "L    \nL    \nL    \nL    \nLLLLL", "M   M\nMM MM\nM M M\nM   M\nM   M", "N   N\nNN  N\nN N N\nN  NN\nN   N", "OOOOO\nO   O\nO   O\nO   O\nOOOOO",
-                "PPPPP\nP   P\nPPPPP\nP    \nP    ", "QQQQQ\nQ   Q\nQ Q Q\nQQQQQ\n    Q", "RRRR \nR   R\nRRRR \nR  R \nR   R", "SSSSS\nS    \nSSSSS\n    S\nSSSSS", "TTTTT\n  T  \n  T  \n  T  \n  T  ",
-                "U   U\nU   U\nU   U\nU   U\nUUUUU", "V   V\nV   V\nVV VV\n V V \n  V  ", "W   W\nW   W\nW W W\nWW WW\nW   W", "X   X\n X X \n  X  \n X X \nX   X", "Y   Y\nY   Y\n Y Y \n  Y  \n  Y  ", "ZZZZZ\n   Z \n  Z  \n Z   \nZZZZZ"};
+                  "FFFFF\nF    \nFFFF \nF    \nF    ", "GGGGG\nG    \nG  GG\nG   G\nGGGGG", "H   H\nH   H\nHHHHH\nH   H\nH   H", "IIIII\n  I  \n  I  \n  I  \nIIIII", "  JJJ\n    J\n    J\n    J\nJJJJ ",
+                  "K   K\nK  K \nKKK  \nK  K \nK   K", "L    \nL    \nL    \nL    \nLLLLL", "M   M\nMM MM\nM M M\nM   M\nM   M", "N   N\nNN  N\nN N N\nN  NN\nN   N", "OOOOO\nO   O\nO   O\nO   O\nOOOOO",
+                  "PPPPP\nP   P\nPPPPP\nP    \nP    ", "QQQQQ\nQ   Q\nQ Q Q\nQQQQQ\n    Q", "RRRR \nR   R\nRRRR \nR  R \nR   R", "SSSSS\nS    \nSSSSS\n    S\nSSSSS", "TTTTT\n  T  \n  T  \n  T  \n  T  ",
+                  "U   U\nU   U\nU   U\nU   U\nUUUUU", "V   V\nV   V\nVV VV\n V V \n  V  ", "W   W\nW   W\nW W W\nWW WW\nW   W", "X   X\n X X \n  X  \n X X \nX   X", "Y   Y\nY   Y\n Y Y \n  Y  \n  Y  ", "ZZZZZ\n   Z \n  Z  \n Z   \nZZZZZ"};
 
         convertToBig(alphabet, bigAlphabet); // alphabet and bigAlphabet arrays passed to letterToBig method
     } // End method arrays
