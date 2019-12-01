@@ -3,7 +3,7 @@
  * AUTHOR:  Richard Cheung
  * DATE:    24 November 2019
  * USE:     Prints vending machine menu
- * DESC:    Asks for input and if the input is valid, then asks for confirmation.
+ * DESC:    Asks for input and if the input is valid, asks for confirmation.
  *          on confirmation, prints dynamic purchasse message. If an Invalid
  *          input is entered, the user will be asked for another input
  */
@@ -15,11 +15,12 @@ class VendingMachine {
         printMenu();
     } // End method main
 
+    // Prints a list of available items by cross-referencing indices in itemCode to itemName
     public static void printMenu() { // A = index 0, B = index 1, etc.
         String[] itemCode = {"A", "B", "C"};
         String[] itemName = {"Packet of Crisps", "Health Bar", "Bar of Chocolate"};
         String[] itemPrice = {"£1.50", "£1.20", "£2.00"};
-        String choice = "";
+        String choice = ""; // choice initialised in printMenu so it can be passed down to whichItem
 
         print("Available Items");
         for (int i = 0; i < itemCode.length; i++) {  // Uses index number to print
@@ -27,9 +28,9 @@ class VendingMachine {
         } // Will continue until it reaches itemCode.length, the highest index of the array
 
         whichItem(itemCode, itemName, itemPrice, choice);
-        confirmation(itemCode, itemName, itemPrice, choice);
     } // End method printMenu
 
+    // Method asks the user for an input and returns their choice
     public static String whichItem(String[] itemCode, String[] itemName, String[] itemPrice, String choice) { // A = index 0, B = index 1, etc.
         choice = input("What would you like? Please enter a letter;");
         // If choice is not A, B, or C, it will repeat the method until they are chosen
@@ -43,6 +44,7 @@ class VendingMachine {
         return choice;
     } // End method whichItem
 
+    // Prints confirmation message. If the item is not confirmed, the program will loop back to main
     public static void confirmation(String[] itemCode, String[] itemName, String[] itemPrice, String choice) {
         for (int i = 0; i < itemCode.length; i++) { // Sets length equal to array length
             if (choice.matches(itemCode[i])) {      // i standardised across all arrays.
@@ -59,7 +61,7 @@ class VendingMachine {
                 }
             }
         }
-    }
+    } // End method confirmation
 
     // Ask for a String with message; Return String from user
     public static String input(String message) {
