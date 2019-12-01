@@ -44,7 +44,7 @@ class AreaCalculator {
         return WIDTH;
     } // End method getWidth
 
-    // Converts square centimetres to square metres, works out 10% extra space and prints the values
+    // Converts square centimetres to square metres, works out 10% extra space, and prints the values
     // If AREA is too small or large, prints an error, otherwise passing AREA and EXTRA to method result
     public static void calculation(double LENGTH, double WIDTH) {
         final double AREA = (LENGTH * WIDTH) / 10000;
