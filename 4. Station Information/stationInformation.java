@@ -1,142 +1,115 @@
-/* *********************************************************************
-    AUTHOR: RICHARD CHEUNG
-    Toilet Checker v1.0a
-    29 October 2019
-    a program that will ask the user to input a station and then check
-    if there are toilets available and if so, how much they cost.
-********************************************************************* */
-
+/**
+ * FILE:    StationInformation.java
+ * AUTHOR:  Richard Cheung
+ * DATE:    1 December 2019
+ * USE:     Lists stations and prints station information
+ * DESC:    Program asks the user to input a station and then check
+ *          whether the station has a toilet and if so, how much they cost.
+ */
 import java.util.Scanner;
 
-class stationInformation {
-    public static void main(String[] p) {
-        list();
-        System.exit(0);
-    }
+class StationInformation {
+    public static void main(String[] param) {
+        stations();
+    } // End method main
 
-    public static void list() { // Lists all stations available
-        // Sets station name, toilet access and price to each record
-        station s1 = new station();
+    // Creates station name, toilet access, and price to each record
+    public static void stations() {
+        Station s1 = new Station();
         s1 = setName(s1, "Mile End");
-        s1 = setToilet(s1, "No");
+        s1 = setToilet(s1, false);
 
-        station s2 = new station();
+        Station s2 = new Station();
         s2 = setName(s2, "Stratford");
-        s2 = setToilet(s2, "Yes");
-        int price2 = 50;
-        s2 = setCost(s2, price2);
+        s2 = setToilet(s2, true);
+        s2 = setCost(s2, 50);
 
-        station s3 = new station();
+        Station s3 = new Station();
         s3 = setName(s3, "North Greenwich");
-        s3 = setToilet(s3, "Yes");
-        int price3 = 20;
-        s3 = setCost(s3, price3);
+        s3 = setToilet(s3, true);
+        s3 = setCost(s3, 20);
 
-        station s4 = new station();
+        Station s4 = new Station();
         s4 = setName(s4, "West Ham");
-        s4 = setToilet(s4, "Yes");
-        int price4 = 10;
-        s4 = setCost(s4, price4);
+        s4 = setToilet(s4, false);
 
         userInput(s1, s2, s3, s4);
-        return;
-    }
+    } // End method stations
 
-    // Returns functions from the station record
-    public static String getName(station s) {
+    // Asks for user input. If a valid input is found, searches and returns information, otherwise, the user is asked for another input
+    public static void userInput(Station s1, Station s2, Station s3, Station s4) {
+        String choice = input("Which station would you like to get the information of?\nMile End\nStratford\nNorth Greenwich\nWest Ham\n");
+
+        if (choice.matches("Mile End|Stratford|North Greenwich|West Ham")) {
+            if (choice.equals("Mile End")) {
+                print(hasToilet(s1));
+            } else if (choice.equals("Stratford")) {
+                print(hasToilet(s2));
+            } else if (choice.equals("North Greenwich")) {
+                print(hasToilet(s3));
+            } else { // choice.equals("West Ham")
+                print(hasToilet(s4));
+            }
+            System.exit(0);
+        } else {
+            print("That is not a valid station. Try again.");
+            userInput(s1, s2, s3, s4);
+        }
+    } // End method userInput
+
+    // Checks if a station has a toilet and returns a string
+    public static String hasToilet(Station s) {
+        if (getToilet(s)) {
+            return getName(s) + " has a toilet. It costs " + getCost(s) + "p.";
+        } else {
+            return getName(s) + " does not have a toilet.";
+        }
+    } // End method hasToilet
+
+    // Returns functions from the Station record
+    public static String getName(Station s) {
         return s.name;
     }
 
-    public static String getToilet(station s) {
+    public static boolean getToilet(Station s) {
         return s.toilet;
     }
 
-    public static int getCost(station s) {
+    public static int getCost(Station s) {
         return s.cost;
     }
 
-    // Sets functions for station record
-    public static station setName(station s, String stationName) {
+    // Sets functions for the Station record
+    public static Station setName(Station s, String stationName) {
         s.name = stationName;
         return s;
     }
 
-    public static station setToilet(station s, String stationToilet) {
+    public static Station setToilet(Station s, boolean stationToilet) {
         s.toilet = stationToilet;
         return s;
     }
 
-    public static station setCost(station s, int price) {
-        s.cost = price;
+    public static Station setCost(Station s, int stationCost) {
+        s.cost = stationCost;
         return s;
     }
 
-    public static void userInput(station s1, station s2, station s3, station s4) {
-        String choice = input("Which station would you like to get the information of?\nMile End\nStratford\nNorth Greenwich\nWest Ham\n");
+    // Ask for a String with message; Return String from user
+	public static String input(String message){
+		Scanner scan = new Scanner(System.in);
+		print(message);
+		return scan.nextLine();
+	}
 
-        if (choice.equals("Mile End")) {
-            boolean boolToilet = s1.toilet.equals("No");     // If a station has no toilet
-            if (boolToilet == true) {                        // boolToilet will be flagged as true
-                print(choice + " does not have a toilet.");  // and will return that there is no toilet
-            } else {                                         // Otherwise it will print its price
-                print(choice + " has a toilet.");
-                print("It costs " + s1.cost + "p.");
-            }
-        }    // Repeated fragments for each station that has a record
-        else if (choice.equals("Stratford")) {
-            boolean boolToilet = s2.toilet.equals("No");
-            if (boolToilet == true) {
-                print(choice + " does not have a toilet.");
-            } else {
-                print(choice + " has a toilet.");
-                print("It costs " + s2.cost + "p.");
-            }
-        } else if (choice.equals("North Greenwich")) {
-            boolean boolToilet = s3.toilet.equals("No");
-            if (boolToilet == true) {
-                print(choice + " does not have a toilet.");
-            } else {
-                print(choice + " has a toilet.");
-                print("It costs " + s3.cost + "p.");
-            }
-        } else if (choice.equals("West Ham")) {
-            boolean boolToilet = s4.toilet.equals("No");
-            if (boolToilet == true) {
-                print(choice + " does not have a toilet.");
-            } else {
-                print(choice + " has a toilet.");
-                print("It costs " + s4.cost + "p.");
-            }
-        } else { // If input is not valid, it will repeat
-            print("This is not a valid station. Try again.");
-            userInput(s1, s2, s3, s4);
-        }
-    }
+    // Print message to screen
+	public static void print(String message){
+		System.out.println(message);
+	}
+} // End class StationInformation
 
-    /* *****************************************************************
-    Ask for a string with given message; return string given by user
-    *****************************************************************  */
-    public static String input(String msg) {
-        Scanner scan = new Scanner(System.in);
-        String val;
-        print(msg);
-        val = scan.nextLine();
-        return val;
-    } //input("<MESSAGE>"); will set the user input as a string
-
-    /* *****************************************************************
-        Print a message to the screen
-    ***************************************************************** */
-    public static void
-    print(String msg) {
-        System.out.println(msg);
-        return;
-    } //System.out.println("<MESSAGE>") simply becomes print("MESSAGE")
-
-} // End class toiletChecker
-
-class station {
+class Station {
     String name;
-    String toilet;
+    boolean toilet;
     int cost;
-} // End class station
+} // End class Station
