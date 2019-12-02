@@ -96,16 +96,16 @@ class StationInformation {
     }
 
     // Ask for a String with message; Return String from user
-	public static String input(String message){
-		Scanner scan = new Scanner(System.in);
-		print(message);
-		return scan.nextLine();
-	}
+    public static String input(String message) {
+        Scanner scan = new Scanner(System.in);
+        print(message);
+        return scan.nextLine();
+    }
 
     // Print message to screen
-	public static void print(String message){
-		System.out.println(message);
-	}
+    public static void print(String message) {
+        System.out.println(message);
+    }
 } // End class StationInformation
 
 class Station {
