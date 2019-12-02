@@ -1,4 +1,4 @@
-# Vending Machine
+# Station Information
  * FILE:    StationInformation.java
  * AUTHOR:  Richard Cheung
  * DATE:    1 December 2019
