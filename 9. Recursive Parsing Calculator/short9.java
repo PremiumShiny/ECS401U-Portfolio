@@ -14,9 +14,11 @@ class short9{
     public static void main (String[] param){
 
         print("test");
-        String input = input("Please enter an expression\n");
+        String userIn = input("Please enter an expression\n");
 
-        int answer = evalEXP(input);
+        int answer = evalEXP(userIn);
+            answer = evalDIGIT(userIn);
+        int result;
 
         print("The answer is " + answer);
 
@@ -25,34 +27,33 @@ class short9{
 
     // Recursively evaluates expressions
     public static int evalEXP (String input){
-
+        print("TEST EVALEXP");
         int result;
+        int answer;
 
         int length = input.length();
 
-        if ( length == 1)
-            result = evalDIGIT(input);
-
-        return result;
+        if ( length == 1) {
+            answer = evalDIGIT(input);
+        } else {
+            result = 0;
+        }
+        return answer;
     }
 
     public static int evalDIGIT (String input) {
-        int result = -1;
+        print("TEST EVALDIGIT");
+        int result;
+        int answer;
 
         if (input.contains(".*[^0-9A-F].*")) {
             print("That is not a valid input");
         }
         else {
-            System.exit(0);
+            result = Integer.parseInt(input);
         }
 
-        return result;
-    }
-
-    public static boolean containsOnce(final String s, final CharSequence substring) {
-        final String substring0 = substring.toString();
-        final int i = s.indexOf(substring0);
-        return i != -1 && i == s.lastIndexOf(substring0);
+        return answer;
     }
 
     /* Get a String from the keyboard
