@@ -6,70 +6,80 @@
  * Simply typing a digit will return its value
  */
 
+import java.util.Scanner;
 
-import java.util.*;
+class short9 {
 
-class short9{
+    public static void main (String[] param) {
+        print("TEST_MAIN");
+        String userIn = input("Please enter an expression;");
 
-    public static void main (String[] param){
+        evalEXP(userIn);
 
-        print("test");
-        String userIn = input("Please enter an expression\n");
-
-        int answer = evalEXP(userIn);
-            answer = evalDIGIT(userIn);
-        int result;
-
-        print("The answer is " + answer);
+        print("The answer is " + userIn);
 
         System.exit(0);
     }
 
     // Recursively evaluates expressions
-    public static int evalEXP (String input){
+    public static int evalEXP (String userIn) {
         print("TEST EVALEXP");
-        int result;
-        int answer;
+        int length = userIn.length();
 
-        int length = input.length();
-
-        if ( length == 1) {
-            answer = evalDIGIT(input);
+        if (length == 1) {
+            evalDIGIT(userIn);
         } else {
-            result = 0;
+            userIn = "99";
         }
-        return answer;
+        return Integer.parseInt(userIn);
     }
 
-    public static int evalDIGIT (String input) {
+    public static int evalDIGIT (String userIn) {
         print("TEST EVALDIGIT");
-        int result;
-        int answer;
+        int result = -1;
 
-        if (input.contains(".*[^0-9A-F].*")) {
-            print("That is not a valid input");
+        if (userIn.equals("[0-9]")) {
+            result = Integer.parseInt(userIn);
         }
-        else {
-            result = Integer.parseInt(input);
+        else if (userIn.equals("[A-F]")) {
+            evalHEX(userIn);
+        } else {
+            print("this will never get printed");
         }
-
-        return answer;
+        return result;
     }
 
-    /* Get a String from the keyboard
-     */
-    public static String input(String message)
-    {
-        Scanner scanner = new Scanner(System.in);
+    public static int evalHEX (String userIn) {
+        print("TEST EVALHEX");
+        String[] hexPastNine = {"A", "B", "C", "D", "E", "F"};
+        int[] hexCompare = {10, 11, 12, 13, 14, 15};
+        int result = -1;
+        for (int hex : hexCompare) {
+            if (userIn.equals(hex)) {
+                hex = hex + 10;
+                System.out.print(hex);
+            }
+        }
+        return result;
+    }
+
+    // Combination of string input with string check
+    // If the input is not 0-9 or A-F, or is a newline character, it will loop
+    public static String input(String message) {
+        Scanner scan = new Scanner(System.in);
+        print(message);
+        String userInput = scan.nextLine();
+        while (userInput.matches(".*[^0-9A-F]") | userInput.matches("")) {
+            print("This is not a valid input.\n\t> The program accepts hexadecimal numbers.\n\t> A single digit will return its value in decimal form.\n\t> S<n> will return the sum of <n> numbers.\n\t> +<a><b> will return the sum of <a> and <b>\n\t> Expressions can be concatenated to form more complex expressions.");
+            print("Please enter an expression;");
+            userInput = scan.nextLine();
+        }
+        return userInput;
+    }
+
+    // Print a message to the screen
+    public static void print(String message) {
         System.out.println(message);
-        return (scanner.nextLine());
     }
 
-    /* General print
-     */
-    public static void print(String message)
-    {
-        System.out.println(message);
-    }
-
-} // end class
+} // End class

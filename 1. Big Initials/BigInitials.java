@@ -37,7 +37,7 @@ class BigInitials {
         print(message);
         String userInput = scan.nextLine();
         while (userInput.matches(".*[^A-Z].*") | userInput.matches("")) { // .* means to find any character sequence; ^ means negation i.e. NOT A to Z
-            print("Some characters are not available:\n\t*Please use capital letters.\n\t*Do not use a space between characters.\nPlease enter your initials;");
+            print("Some characters are not available:\n\t> Please use capital letters.\n\t> Do not use a space between characters.\nPlease enter your initials;");
             userInput = scan.nextLine();
         }
         return userInput;
