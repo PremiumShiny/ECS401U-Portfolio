@@ -13,10 +13,9 @@ class short9 {
     public static void main (String[] param) {
         print("TEST_MAIN");
         String userIn = input("Please enter an expression;");
+        int answer = evalEXP(userIn);
 
-        evalEXP(userIn);
-
-        print("The answer is " + userIn);
+        print("The answer is " + answer);
 
         System.exit(0);
     }
@@ -24,14 +23,16 @@ class short9 {
     // Recursively evaluates expressions
     public static int evalEXP (String userIn) {
         print("TEST EVALEXP");
-        int length = userIn.length();
+        int result = -1;
 
+        // Uses length to determine whether the input is a single digit or expression
+        int length = userIn.length();
         if (length == 1) {
-            evalDIGIT(userIn);
+            result = evalDIGIT(userIn);
         } else {
-            userIn = "99";
+            //evaluate expression
         }
-        return Integer.parseInt(userIn);
+        return result;
     }
 
     public static int evalDIGIT (String userIn) {
