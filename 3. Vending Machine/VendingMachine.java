@@ -1,10 +1,10 @@
 /**
  * FILE:    VendingMachine.java
  * AUTHOR:  Richard Cheung
- * DATE:    24 November 2019
+ * DATE:    3 December 2019
  * USE:     Prints vending machine menu
  * DESC:    Asks for input and if the input is valid, asks for confirmation.
- *          on confirmation, prints dynamic purchasse message. If an Invalid
+ *          on confirmation, prints dynamic purchase message. If an Invalid
  *          input is entered, the user will be asked for another input
  */
 
@@ -20,14 +20,14 @@ class VendingMachine {
         String[] itemCode = {"A", "B", "C"};
         String[] itemName = {"Packet of Crisps", "Health Bar", "Bar of Chocolate"};
         String[] itemPrice = {"£1.50", "£1.20", "£2.00"};
-        String choice = ""; // choice initialised in printMenu so it can be passed down to whichItem
+        String userInput = ""; // userInput initialised in printMenu so it can be passed down to whichItem
 
         print("Available Items");
         for (int i = 0; i < itemCode.length; i++) {  // Uses index number to print
             print(itemCode[i] + ": " + itemName[i]); // Prints "A: Packet of Crisps"
         } // Will continue until it reaches itemCode.length, the highest index of the array
 
-        whichItem(itemCode, itemName, itemPrice, choice);
+        whichItem(itemCode, itemName, itemPrice, userInput);
     } // End method printMenu
 
     // Method asks the user for an input and returns their choice
@@ -50,7 +50,7 @@ class VendingMachine {
             if (choice.matches(itemCode[i])) {      // i standardised across all arrays.
                 print(itemName[i] + " will cost " + itemPrice[i] + ".");
                 // If choice = A, index 0 will be chosen and so itemName and itemPrice will pull data from index 0
-                String confirm = input("Would you like to purchace this item? ('Y' to confirm);");
+                String confirm = input("Would you like to purchase this item? ('Y' to confirm);");
                 if (confirm.matches("Y")) {
                     String itemNameLower = itemName[i];
                     print("Enjoy your " + itemNameLower.toLowerCase() + "!");
