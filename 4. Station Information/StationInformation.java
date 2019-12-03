@@ -1,7 +1,7 @@
 /**
  * FILE:    StationInformation.java
  * AUTHOR:  Richard Cheung
- * DATE:    1 December 2019
+ * DATE:    3 December 2019
  * USE:     Lists stations and prints station information
  * DESC:    Program asks the user to input a station and then check
  *          whether the station has a toilet and if so, how much they cost.
@@ -41,13 +41,13 @@ class StationInformation {
         String choice = input("Which station would you like to get the information of?\nMile End\nStratford\nNorth Greenwich\nWest Ham\n");
 
         if (choice.matches("Mile End|Stratford|North Greenwich|West Ham")) {
-            if (choice.equals("Mile End")) {
+            if ("Mile End".equals(choice)) {
                 print(hasToilet(s1));
-            } else if (choice.equals("Stratford")) {
+            } else if ("Stratford".equals(choice)) {
                 print(hasToilet(s2));
-            } else if (choice.equals("North Greenwich")) {
+            } else if ("North Greenwich".equals(choice)) {
                 print(hasToilet(s3));
-            } else { // choice.equals("West Ham")
+            } else { // "West Ham".equals(choice)
                 print(hasToilet(s4));
             }
             System.exit(0);
