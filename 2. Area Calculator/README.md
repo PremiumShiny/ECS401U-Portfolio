@@ -1,4 +1,5 @@
 # Area Calculator
+```
  * FILE:    AreaCalculator.java
  * AUTHOR:  Richard Cheung
  * DATE:    24 November 2019
@@ -8,3 +9,4 @@
             and large dimensions where AREA > double size by printing an error. There is a check to see whether
             the user wants to continue using the program by utilising a loop. Handles catching of inputs
             containing only ".", and strings including non-digit characters by printing an error.
+```
