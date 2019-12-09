@@ -4,17 +4,19 @@ import java.util.Arrays;
 class fruitsbroken{
 
 	public static void main (String[] p){
+        print("TEST_MAIN");
 		method1();
-		print("TEST");
 		System.exit(0);
 	}
 
 	public static void method1(){
+        print("TEST_M1");
 		adt myADT[] = fruit();
 		print(toString(myADT));
 	}
 
 	public static adt createadt (String adtName, boolean adtBool){
+        print("TEST_CREATE");
 		adt a = new adt();
 		a.name = adtName;
 		a.bool = adtBool;
@@ -22,9 +24,10 @@ class fruitsbroken{
 	}
 
 	public static String toString(adt[] arr){
+        print("TEST_TOSTRING");
 		String str = "";
 		for (adt item : arr){
-			str +=   "[" + getName(item) + "," + getBool(item) + "]";
+			str +=   getName(item) + "\t" + getBool(item) + "\n";
 		}
 		return str;
 	}
@@ -46,6 +49,7 @@ class fruitsbroken{
 	}
 
 	public static adt[] fruit(){
+        print("TEST_FRUIT");
 		adt[] resultPackage = new adt[2];
 		adt a1 = createadt("apple", false);
 		adt a2 = createadt("banana", true);
