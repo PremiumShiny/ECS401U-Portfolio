@@ -6,6 +6,7 @@
  * DESC:    Program asks the user to input a station and then check
  *          whether the station has a toilet and if so, how much they cost.
  */
+ 
 import java.util.Scanner;
 
 class StationInformation {

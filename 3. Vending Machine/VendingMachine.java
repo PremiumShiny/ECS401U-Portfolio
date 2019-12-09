@@ -11,33 +11,32 @@
 import java.util.Scanner;
 
 class VendingMachine {
-    public static void main(String[] p) {
+    public static void main(String[] param) {
         printMenu();
     } // End method main
 
     // Prints a list of available items by cross-referencing indices in itemCode to itemName
     public static void printMenu() { // A = index 0, B = index 1, etc.
-        String[] itemCode = {"A", "B", "C"};
-        String[] itemName = {"Packet of Crisps", "Health Bar", "Bar of Chocolate"};
+        String[] itemCode  = {"A", "B", "C"};
+        String[] itemName  = {"Packet of Crisps", "Health Bar", "Bar of Chocolate"};
         String[] itemPrice = {"£1.50", "£1.20", "£2.00"};
-        String userInput = ""; // userInput initialised in printMenu so it can be passed down to whichItem
 
         print("Available Items");
         for (int i = 0; i < itemCode.length; i++) {  // Uses index number to print
             print(itemCode[i] + ": " + itemName[i]); // Prints "A: Packet of Crisps"
         } // Will continue until it reaches itemCode.length, the highest index of the array
 
-        whichItem(itemCode, itemName, itemPrice, userInput);
+        whichItem(itemCode, itemName, itemPrice);
     } // End method printMenu
 
     // Method asks the user for an input and returns their choice
-    public static String whichItem(String[] itemCode, String[] itemName, String[] itemPrice, String choice) { // A = index 0, B = index 1, etc.
-        choice = input("What would you like? Please enter a letter;");
+    public static String whichItem(String[] itemCode, String[] itemName, String[] itemPrice) { // A = index 0, B = index 1, etc.
+        String choice = input("What would you like? Please enter a letter;");
         // If choice is not A, B, or C, it will repeat the method until they are chosen
         if (choice.matches(".*[^ABC].*") || choice.matches("")) {
             print("That is not a valid input. Try again.\n");
             printMenu();
-            whichItem(itemCode, itemName, itemPrice, choice);
+            whichItem(itemCode, itemName, itemPrice);
         } else {
             confirmation(itemCode, itemName, itemPrice, choice);
         }
