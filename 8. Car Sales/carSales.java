@@ -1,24 +1,26 @@
-/* *********************************************************************
-    AUTHOR: RICHARD CHEUNG
-    Car Sales v0a
-    19 November 2019
-    DESCRIPTION PENDING
-********************************************************************* */
+/**
+ * FILE:    CarSales.java
+ * AUTHOR:  Richard Cheung
+ * DATE:    9 December 2019
+ * USE:     Lists cars and asks what car would like to be known about. Prints whether the car is electric or not.
+ * DESC:    Program uses accessor methods to store information about car data. If a match for a car name is found,
+ *			prints information about the car, and if the car is not found, print an error.
+ */
 
 import java.util.Scanner;
 
-class carSales {
-    public static void main(String[] p) {
-        car c1 = createCar("Triumph", false);
-        car c2 = createCar("Mini E", true);
-        car c3 = createCar("Focus", false);
+class CarSales {
+    public static void main(String[] param) {
+        Car c1 = createCar("Triumph", false);
+        Car c2 = createCar("Mini E", true);
+        Car c3 = createCar("Focus", false);
         // Setting car records
         userInput(c1, c2, c3);
 
         System.exit(0);
     } // End method main
 
-    public static void userInput(car c1, car c2, car c3) {
+    public static void userInput(Car c1, Car c2, Car c3) {
         String choice = input("What car do you want to know about?\n" + getName(c1) + "\n" + getName(c2) + "\n" + getName(c3));
         // Checks if the input matches one of the available car models first
         if (choice.matches("Triumph|Mini E|Focus")) {
@@ -36,23 +38,15 @@ class carSales {
         }
     } // End method userInput
 
+    /**
+     * METHODS USED TO SIMPLIFY CODE BY USING KEYWORDS
+     */
+
     // Ask for a string with given message; return string given by user
     public static String input(String message) {
         Scanner scan = new Scanner(System.in);
         print(message);
         return scan.nextLine();
-    }
-
-    // Ask for an integer with given message; returns integer given by user
-    // If a valid integer is not found, will ask again
-    public static int inputInt(String message) {
-        String userInput;
-        userInput = input(message);
-        while (userInput.matches(".*[^0-9].*") || userInput.matches("")) {
-            print("This is not a valid input. Enter an INTEGER, not STRING.");
-            userInput = input(message);
-        }
-        return Integer.parseInt(userInput);
     }
 
     // Print a message to the screen
@@ -61,15 +55,15 @@ class carSales {
     }
 
     // Creates car records
-    public static car createCar(String carName, boolean carElectric) {
-        car c = new car();
+    public static Car createCar(String carName, boolean carElectric) {
+        Car c = new Car();
         c.name = carName;
         c.electric = carElectric;
         return c;
     }
 
     // Converts record into string format
-    public static String carString(car c) {
+    public static String carString(Car c) {
         if (getElectric(c)) {
             return "The " + getName(c) + " is electric.";
         } else {
@@ -78,16 +72,16 @@ class carSales {
     }
 
     // Getter methods
-    public static String getName(car c) {
+    public static String getName(Car c) {
         return c.name;
     }
 
-    public static boolean getElectric(car c) {
+    public static boolean getElectric(Car c) {
         return c.electric;
     }
-}
+} // End class CarSales
 
-class car {
+class Car {
     String name;
     boolean electric;
 }
