@@ -39,7 +39,6 @@ class carSales {
     // Ask for a string with given message; return string given by user
     public static String input(String message) {
         Scanner scan = new Scanner(System.in);
-        String userInput;
         print(message);
         return scan.nextLine();
     }
